@@ -1,0 +1,197 @@
+<section class="section">
+  @if (activeItemIndex <= 2) {
+  <h2 class="tui-text_h2">Конфигуратор свидания</h2>
+    <div class="date-configurator">
+      <tui-stepper
+        orientation="vertical"
+        tuiConnected
+        [activeItemIndex]="activeItemIndex"
+        (click)="changeActiveItemIndex(1)"
+      >
+        <button
+          tuiStep
+          class="step"
+          type="button"
+          disabled
+        >
+          Где мы будем ужинать?
+        </button>
+        <button
+          tuiStep
+          type="button"
+          disabled
+          (click)="changeActiveItemIndex(2)"
+        >
+          Какие цветы тебе подарить?
+        </button>
+        <button
+          tuiStep
+          type="button"
+          disabled
+          (click)="changeActiveItemIndex(3)"
+        >
+          Какой подарок тебе подарить?
+        </button>
+      </tui-stepper>
+    @if (activeItemIndex === 0) {
+      <div class="option-card">
+        <label class="label tui-space_bottom-4">
+          <input
+            tuiCheckbox
+            type="checkbox"
+            [(ngModel)]="isCafeSelected"
+            size="m"
+            class="input"
+          />
+          <div
+            tuiCardLarge
+            tuiHeader
+            class="image image-cafe"
+            tuiTheme="dark"
+          >
+            <h1 tuiTitle>
+              Conversation на Остоженке
+              <span tuiSubtitle>Здесь мы впервые встретились 😉</span>
+            </h1>
+          </div>
+        </label>
+        @if (isCafeSelected) {
+          <button
+            size="l"
+            tuiButton
+            type="button"
+            appearance="primary-grayscale"
+            (click)="changeActiveItemIndex()"
+          >
+            Продолжить
+          </button>
+        }
+      </div>
+    } @else if (activeItemIndex === 1) {
+      <div class="option-card">
+        <label class="label tui-space_bottom-4">
+          <input
+            tuiCheckbox
+            type="checkbox"
+            [(ngModel)]="areFlowersSelected"
+            size="m"
+            class="input"
+          />
+          <div
+            tuiCardLarge
+            tuiHeader
+            class="image image-flowers"
+            tuiTheme="dark"
+          >
+            <h1 tuiTitle>
+              Тюльпаны
+              <span tuiSubtitle>Ты хотела их получить на 8 марта, а получишь ещё и на 14 февраля 😛</span>
+            </h1>
+          </div>
+        </label>
+        @if (areFlowersSelected) {
+          <button
+            size="l"
+            tuiButton
+            type="button"
+            appearance="primary-grayscale"
+            (click)="changeActiveItemIndex()"
+          >
+            Продолжить
+          </button>
+        }
+      </div>
+    } @else if (activeItemIndex === 2){
+      <div class="option-card">
+        <label class="label tui-space_bottom-4">
+          <input
+            tuiCheckbox
+            type="checkbox"
+            [(ngModel)]="areAirpodsSelected"
+            size="m"
+            class="input"
+          />
+          <div
+            tuiCardLarge
+            tuiHeader
+            class="image image-airpods"
+            tuiTheme="dark"
+          >
+            <h1 tuiTitle>
+              AirPods Pro 2
+              <span tuiSubtitle>Лучшие наушники на Земле для лучшей девушки на Земле ❤️</span>
+            </h1>
+          </div>
+        </label>
+        @if (areAirpodsSelected) {
+          <button
+            size="l"
+            tuiButton
+            type="button"
+            appearance="primary-grayscale"
+            (click)="changeActiveItemIndex()"
+          >
+            Продолжить
+          </button>
+        }
+      </div>
+    }
+  </div>
+  } @else {
+    <div
+      tuiAppearance="floating"
+      tuiCardLarge
+    >
+      <header tuiHeader>
+        <h1 tuiTitle>
+          Итого:
+          <span tuiSubtitle>Conversation, ул. Остоженка, 37/7с2, 19:00. Жду Софью в красивом платье и хорошем расположении духа 😘</span>
+        </h1>
+      </header>
+
+      <section>
+        <iframe
+          height="450"
+          src="https://yandex.ru/map-widget/v1/?um=constructor%3Afc440bc403839978973507f5d933d180953194a92ce3edaed1881c8ddf04421a&amp;source=constructor"
+          title="map"
+          width="100%"
+          class="map"
+        ></iframe>
+      </section>
+
+      <footer>
+        <button
+          appearance="secondary"
+          size="m"
+          tuiButton
+          type="button"
+        >
+          14 февраля
+        </button>
+      </footer>
+    </div>
+  }
+</section>
+
+<ng-template
+  #content
+  let-observer
+>
+  <div class="modal">
+    <h2 class="tui-text_h2 title">ДИСКЛЕЙМЕР</h2>
+    <div class="tui-text_h6 tui-space_bottom-10">
+      Поскольку мы живем в России, то и конфигуратор свидания будет соответствующий:
+      все решения я уже принял, тебе нужно будет только ознакомиться с ними и согласиться.
+    </div>
+    <button
+      size="l"
+      tuiButton
+      type="button"
+      appearance="info"
+      class="button"
+      (click)="observer.complete()"
+    >
+      Я согласна с тем, что Вова всё решил за меня
+    </button>
+  </div>
+</ng-template>

@@ -1,0 +1,77 @@
+:host {
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.step {
+
+}
+
+.option-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  position: relative;
+}
+
+.input {
+  position: absolute;
+  z-index: 1;
+  right: 0.75rem;
+  top: 0.75rem;
+}
+
+.image {
+  cursor: pointer;
+  width: 300px;
+  height: 150px;
+
+  &::before {
+    content: "";
+    background: rgb(0 0 0 / 75%);
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+  }
+}
+
+.image-cafe {
+  background: url('/cafe.png') no-repeat center / cover;
+}
+
+.image-flowers {
+  background: url('/tulip.png') no-repeat center / cover;
+}
+
+.image-airpods {
+  background: url('/airpods.jpeg') repeat center / 70%;
+}
+
+.date-configurator {
+  display: flex;
+  align-items: flex-start;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  color: var(--tui-text-negative);
+  text-align: center;
+}

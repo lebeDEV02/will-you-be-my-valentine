@@ -1,0 +1,7 @@
+* {
+  height: 100vh;
+}
+
+body {
+  background-color: var(--tui-background-base);
+}

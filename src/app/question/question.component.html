@@ -1,0 +1,70 @@
+@if (willSofiaBeMyValentine() === null)  {
+  <section class="question">
+    <h2 tuiTitle="l" class="tui-space_bottom-4">
+      Софья, ты будешь моим Валентином?
+    </h2>
+    <video autoplay loop muted playsinline width="498" height="498" class="tui-space_bottom-4">
+      <source src="dog.webm" type="video/webm">
+    </video>
+    <div class="buttons">
+      <button
+        size="l"
+        tuiButton
+        type="button"
+        appearance="positive"
+        (click)="setAnswer(true)"
+      >
+        ДА
+      </button>
+      <button
+        size="l"
+        tuiButton
+        type="button"
+        appearance="accent"
+        (click)="setAnswer(false)"
+      >
+        нет
+      </button>
+    </div>
+  </section>
+}
+
+@if (willSofiaBeMyValentine() === true) {
+  <section class="answer">
+    <h2 tuiTitle="l" class="tui-space_bottom-4">
+      УРААААА, я так и знал ❤️❤️❤️
+    </h2>
+    <video autoplay loop muted playsinline width="498" height="498" class="tui-space_bottom-4">
+      <source src="cat.webm" type="video/webm">
+    </video>
+    <button
+      size="l"
+      tuiButton
+      type="button"
+      appearance="primary-grayscale"
+      class="button"
+      (click)="navigateToDateConfigurator()"
+    >
+      Перейти к конфигуратору свидания →
+    </button>
+    </section>
+} @else if (willSofiaBeMyValentine() === false ){
+  <section class="answer">
+    <h2 tuiTitle="l" class="tui-space_bottom-4">
+      Кому ты рассказываешь, быстро нажми ДА
+    </h2>
+    <video autoplay loop muted playsinline width="498" height="498" class="tui-space_bottom-4">
+      <source src="monkey.webm" type="video/webm">
+    </video>
+    <button
+      size="l"
+      tuiButton
+      type="button"
+      appearance="positive"
+      class="button"
+      (click)="setAnswer(true)"
+    >
+      ДА
+    </button>
+  </section>
+}
